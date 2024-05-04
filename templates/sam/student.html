@@ -1,0 +1,56 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static "css/home.css"%}">
+</head> <body>
+<center>
+    <div class="container" align="center">
+    <div class="jumbotron">
+        <h2><B><u>Welcome to Student Score with Strategy</u></B></h2>
+        <div> <I>Goal's & Exam's</I> </div>
+    </div></div>
+    <h1><u>Student's List</u></h1><hr>
+
+    <div class="to">
+           <br><u><B><a href="{% url 'student' %} " >Student's</a></B></u>
+           <br><u><B> <a href="{% url 'goal' %}  " >Goal's</a></B></u>
+           <br> <u><B><a href="{% url 'exam' %} " >Exam's</a></B></u>
+    </div>
+
+    <div id="tt">  <a class="btn btn-primary btn-lg" href="{% url 'addstudent' %} " >Add Student</a></div>
+
+
+<br><br>
+<div class="table">
+    <center>
+    <table class = "table table-bordered">
+    <thead>
+            <th>S.No.</th>
+            <th>First Name</th>
+             <th>Last Name</th>
+             <th>E-Mail ID</th>
+             <th>Phone Number</th>
+
+
+    </thead>
+    {% if key %}
+       {% for x in key %}
+            <tr>
+                <td>{{x.id}}</td>
+               <td> <a href="{% url 'goal' %} "> {{x.firstname}}</a></td>
+                <td>{{x.lastname}}</td>
+                <td>{{x.email}}</td>
+                <td>{{x.phonenumber}}</td>
+
+
+            </tr>
+        {% endfor%}
+    {% endif%}
+</table>
+    </center>
+</body>
+</html>

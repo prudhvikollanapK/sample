@@ -1,0 +1,63 @@
+
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GOAL</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static "css/home2.css"%}">
+</head> <body>
+<center>
+    <div class="container" align="center">
+    <div class="jumbotron">
+<u><B><h1>Goal Details</h1></B></u>
+
+
+
+
+    <div class="to">
+        <br> <u><B><a  href="{% url 'student' %}  " > Students</a></B></u>
+           <br> <u><B><a href="{% url 'goal' %} " >Goal's</a></B></u>
+           <br> <u><B><a href="{% url 'exam' %} " >Exam's</a></B></u>
+    </div>
+
+  <div id="tt">  <a class="btn btn-primary btn-sm" href="{% url 'addgoal' %} " >Add Goal</a></div>
+
+<table class="table table-bordered">
+
+     <thead>
+             <th>S.No</th>
+             <th>Student Name</th>
+             <th>Goal Name</th>
+             <th>Subject Name</th>
+             <th>Target Rank</th>
+             <th>Target Score</th>
+             <th>Target Date</th>
+             <th>Current Score</th>
+             <th>Exam Name</th>
+
+    </thead>
+
+    {% if key %}
+       {% for x in key %}
+    <tr>
+
+        <td>  {{x.id}}</td>
+        <td>  {{x.subjectname}}</td>
+        <td>  {{x.goalname}}</td>
+        <td>  {{x.targetrank}}</td>
+        <td>  {{x.targetscore}}</td>
+        <td>  {{x.targetdate}}</td>
+        <td>  {{x.currentscore}}</td>
+        <td>   <a href="{% url 'exam' %} "> {{x.nameofexam}}</a></td>
+    </tr>
+
+        {% endfor%}
+    {% endif%}
+
+           </div></div>
+    </table>
+</center>
+</body>
+</html>
